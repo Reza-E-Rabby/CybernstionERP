@@ -1,0 +1,8 @@
+D:\Startup_Project\CybernationERP\CSERP.MODELS\bin\Debug\netcoreapp3.1\CSERP.MODELS.deps.json
+D:\Startup_Project\CybernationERP\CSERP.MODELS\bin\Debug\netcoreapp3.1\CSERP.MODELS.dll
+D:\Startup_Project\CybernationERP\CSERP.MODELS\bin\Debug\netcoreapp3.1\CSERP.MODELS.pdb
+D:\Startup_Project\CybernationERP\CSERP.MODELS\obj\Debug\netcoreapp3.1\CSERP.MODELS.csprojAssemblyReference.cache
+D:\Startup_Project\CybernationERP\CSERP.MODELS\obj\Debug\netcoreapp3.1\CSERP.MODELS.AssemblyInfoInputs.cache
+D:\Startup_Project\CybernationERP\CSERP.MODELS\obj\Debug\netcoreapp3.1\CSERP.MODELS.AssemblyInfo.cs
+D:\Startup_Project\CybernationERP\CSERP.MODELS\obj\Debug\netcoreapp3.1\CSERP.MODELS.dll
+D:\Startup_Project\CybernationERP\CSERP.MODELS\obj\Debug\netcoreapp3.1\CSERP.MODELS.pdb

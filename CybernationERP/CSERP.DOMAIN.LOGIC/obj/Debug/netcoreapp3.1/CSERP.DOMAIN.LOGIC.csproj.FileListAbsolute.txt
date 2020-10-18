@@ -1,0 +1,8 @@
+D:\Startup_Project\CybernationERP\CSERP.DOMAIN.LOGIC\bin\Debug\netcoreapp3.1\CSERP.DOMAIN.LOGIC.deps.json
+D:\Startup_Project\CybernationERP\CSERP.DOMAIN.LOGIC\bin\Debug\netcoreapp3.1\CSERP.DOMAIN.LOGIC.dll
+D:\Startup_Project\CybernationERP\CSERP.DOMAIN.LOGIC\obj\Debug\netcoreapp3.1\CSERP.DOMAIN.LOGIC.csprojAssemblyReference.cache
+D:\Startup_Project\CybernationERP\CSERP.DOMAIN.LOGIC\obj\Debug\netcoreapp3.1\CSERP.DOMAIN.LOGIC.AssemblyInfoInputs.cache
+D:\Startup_Project\CybernationERP\CSERP.DOMAIN.LOGIC\obj\Debug\netcoreapp3.1\CSERP.DOMAIN.LOGIC.AssemblyInfo.cs
+D:\Startup_Project\CybernationERP\CSERP.DOMAIN.LOGIC\bin\Debug\netcoreapp3.1\CSERP.DOMAIN.LOGIC.pdb
+D:\Startup_Project\CybernationERP\CSERP.DOMAIN.LOGIC\obj\Debug\netcoreapp3.1\CSERP.DOMAIN.LOGIC.dll
+D:\Startup_Project\CybernationERP\CSERP.DOMAIN.LOGIC\obj\Debug\netcoreapp3.1\CSERP.DOMAIN.LOGIC.pdb

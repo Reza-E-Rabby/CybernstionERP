@@ -1,0 +1,132 @@
+﻿@model CSERP.MODELS.Models.HRM.HRMCompanyInfo
+@{
+    ViewData["Title"] = "CreateCompany";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Create Company</h3>
+<div class="row">
+    <div class="col-md-4">
+        <form id="inputForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CompanyName" class="control-label">Company </label>
+                @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+                @Html.HiddenFor(m => m.ID)
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocationDescription" class="control-label">Location Description </label>
+                @Html.TextBoxFor(m => m.LocationDescription, new { @class = "form-control" })
+                <span asp-validation-for="LocationDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a id="Create" class="btn btn-sm btn-warning">Save</a>
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <h3>List</h3>
+    <hr />
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Company Name</th>
+                <th>Location</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="dataTable">
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/js/jquery-3.5.1.min.js"></script>
+    <script>
+        $("#Create").click(function () {
+            CreateNewCompany();
+        });
+        function Clear() {
+            $("#CompanyName").val("");
+            $("#LocationDescription").val("");
+        }
+
+        function CreateNewCompany() {
+            $.post("/HRM/MasterData/CreateUpdateNewCompany", $("#inputForm").serialize(), function (r) {
+                alert(r);
+                Clear();
+                $("#Create").removeClass("btn btn-sm btn-danger").addClass("btn btn-sm btn-warning");
+                $("#Create").html("Save");
+                CompanyList();
+            });
+        }
+
+        function CreateNewCompany_() {
+            var str = $("#inputForm").serialize();
+            alert(str);
+            console.log(str);
+        }
+
+        CompanyList();
+        function CompanyList() {
+            $.ajax({
+                type: 'POST',
+                url: "/HRM/MasterData/CompanyList",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    var row;
+                    var sl = 1;
+                    $.each(data, function (index, k) {
+                        row += "<tr><td>" + sl + "</td><td>" + k.companyName + "</td><td>" + k.locationDescription + "</td><td>" + "<input type='button' value='Edit' class='btn btn-sm btn-warning' onclick='LoadCompanyToEdit(\"" + k.id + "\")' /> " + "<input type='button' value='Delete' class='btn btn-sm btn-danger' style='    color: white;' onclick='DeleteThis(\"" + k.id + "\")'  />" + "</td></tr>";
+                        sl++;
+                    });
+                    $("#dataTable").html(row);
+                },
+                error: function () {
+                    console.log('erorr occured');
+                }
+            });
+        }
+
+        function LoadCompanyToEdit(id) {
+            $.ajax({
+                type: 'POST',
+                url: "/HRM/MasterData/GetCompanyById",
+                data: JSON.stringify({
+                    "Id": id
+                }),
+                contentType: "application/json; charset=utf-8",
+                success: function (fieldData) {
+                    $("#CompanyName").val(fieldData.companyName);
+                    $("#ID").val(fieldData.id);
+                    $("#LocationDescription").val(fieldData.locationDescription);
+                    $("#Create").removeClass("btn btn-sm btn-warning").addClass("btn btn-sm btn-danger");
+                    $("#Create").html("Update");
+                },
+                error: function () {
+                    console.log('erorr occured');
+                }
+            });
+        }
+        function DeleteThis(id) {
+            $.ajax({
+                type: 'POST',
+                url: "/HRM/MasterData/DeleteCompany",
+                data: JSON.stringify({
+                    "Id": id
+                }),
+                contentType: "application/json; charset=utf-8",
+                success: function (r) {
+                    alert(r);
+                    CompanyList();
+                },
+                error: function () {
+                    console.log('erorr occured');
+                }
+            });
+        }
+    </script>
+}
